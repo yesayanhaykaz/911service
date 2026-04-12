@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Phone, MessageCircle, CheckCircle, ArrowRight, Star } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import type { ServiceKey } from '@/locales';
+import { BrandLogo } from '@/components/BrandLogos';
 
 interface ServicePageProps {
   serviceKey: ServiceKey;
@@ -147,12 +148,7 @@ export default function ServicePageTemplate({
                 <h2 className="text-3xl font-black text-gray-900 mb-6">{s.brandsTitle}</h2>
                 <div className="flex flex-wrap gap-3">
                   {svc.brands.map((brand) => (
-                    <span
-                      key={brand}
-                      className="px-4 py-2.5 rounded-xl bg-white border border-gray-100 text-gray-700 text-sm font-semibold hover:border-blue-200 hover:text-blue-700 transition-colors"
-                    >
-                      {brand}
-                    </span>
+                    <BrandLogo key={brand} brand={brand} className="h-9" />
                   ))}
                 </div>
 

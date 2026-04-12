@@ -91,7 +91,6 @@ export default function Services() {
           viewport={{ once: true }} transition={{ duration: 0.7 }}
           className="relative rounded-3xl overflow-hidden bg-[#080808] mb-6"
         >
-          {/* Background image */}
           <div className="absolute inset-0">
             <Image
               src="https://images.unsplash.com/photo-1570087935069-b57e0a4edc77?w=1400&q=75&fit=crop"
@@ -110,20 +109,20 @@ export default function Services() {
               </div>
 
               <h3 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
-                {t.services.featured_title.split(' ').slice(0, -1).join(' ')}
+                {t.services.featured_title}
                 <br />
                 <span className="text-blue-400">{t.services.featured_accent}</span>
               </h3>
 
               <p className="text-white/60 text-lg mb-8 leading-relaxed">{t.services.featured_desc}</p>
 
-              {/* Brand logos */}
+              {/* Brand logos — dark variant so they show on dark background */}
               <div className="flex flex-wrap items-center gap-3 mb-8">
-                <DeLonghiLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" />
-                <JuraLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" />
-                <NespressoLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" />
-                <SaecoLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" />
-                <PhilipsLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" />
+                <DeLonghiLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" dark />
+                <JuraLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" dark />
+                <NespressoLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" dark />
+                <SaecoLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" dark />
+                <PhilipsLogo className="h-7 opacity-90 hover:opacity-100 transition-opacity" dark />
               </div>
 
               {/* Type badges */}
@@ -160,39 +159,41 @@ export default function Services() {
           {secondaryServices.map((service, i) => {
             const svc = t.services_list[service.key];
             return (
-              <motion.a
+              <motion.div
                 key={svc.slug}
                 custom={i} initial="hidden" whileInView="show"
                 viewport={{ once: true }} variants={fadeUp}
-                href={wa(svc.waMsg)}
-                target="_blank" rel="noopener noreferrer"
-                className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer bg-white"
               >
-                {/* Image */}
-                <div className="relative h-36 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={svc.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className={`absolute top-3 left-3 w-8 h-8 ${service.bg} rounded-xl flex items-center justify-center`}>
-                    <service.icon className={`w-4 h-4 ${service.color}`} />
-                  </div>
-                  {/* WhatsApp hover indicator */}
-                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center">
-                      <MessageCircle className="w-3.5 h-3.5 text-white" />
+                <Link
+                  href={`/services/${svc.slug}`}
+                  className="group relative rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer bg-white block"
+                >
+                  {/* Image */}
+                  <div className="relative h-36 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={svc.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className={`absolute top-3 left-3 w-8 h-8 ${service.bg} rounded-xl flex items-center justify-center`}>
+                      <service.icon className={`w-4 h-4 ${service.color}`} />
+                    </div>
+                    {/* Arrow on hover */}
+                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <ArrowRight className="w-3.5 h-3.5 text-white" />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="p-4">
-                  <h4 className="font-bold text-gray-900 text-sm">{svc.name}</h4>
-                  <p className="text-gray-400 text-xs mt-1">Tap to contact →</p>
-                </div>
-              </motion.a>
+                  <div className="p-4">
+                    <h4 className="font-bold text-gray-900 text-sm">{svc.name}</h4>
+                    <p className="text-gray-400 text-xs mt-1">{t.services.featured_cta} →</p>
+                  </div>
+                </Link>
+              </motion.div>
             );
           })}
         </div>

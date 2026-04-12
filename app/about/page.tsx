@@ -3,70 +3,23 @@
 import { motion } from 'framer-motion';
 import { Award, Shield, Users, Star, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useLang } from '@/contexts/LanguageContext';
+import { BrandLogo } from '@/components/BrandLogos';
 
-const stats = [
-  { value: '10+', label: 'Tarva Perdzarutyun', desc: 'Veranoroglman bolortum' },
-  { value: '500+', label: 'Veranoroglum', desc: 'Hajoghakabar avartrats' },
-  { value: '4.9★', label: 'Gnahatakanы', desc: '250+ karziq Google-um' },
-  { value: '12մ', label: 'Yerashquiq', desc: 'Bolor veranoroglneri vra' },
-];
-
-const values = [
-  {
-    icon: Award,
-    title: 'Masnagitatsutyun',
-    desc: 'Mer himnakan maselayt\'utyunn e kofe meqenayery — DeLonghi, Jura, Saeco, Philips, Nespresso, Siemens. 10+ tari perdzarutyun.',
-    color: 'text-blue-600',
-    bg: 'bg-blue-50',
-  },
-  {
-    icon: Shield,
-    title: '12 Amis Yerashquiq',
-    desc: 'Bolor veranoroglneri vra talis enq 12 amis yerashquiq. Nor pahestamaser maseri ogtagordzutyamb, bayts nor ginovm.',
-    color: 'text-green-600',
-    bg: 'bg-green-50',
-  },
-  {
-    icon: Users,
-    title: 'Hadrort Moteцum',
-    desc: 'Hatchordi hamar mer tzarayutiunny linelou e hasaneli ev tесanaъeli — bolor gner haytni en akhtorosumnits arаj, nevchev veranoroglman katarum.',
-    color: 'text-purple-600',
-    bg: 'bg-purple-50',
-  },
-  {
-    icon: Star,
-    title: 'Apandeli Arduynq',
-    desc: '500+ goh hatchord Google-um 4.9 astghov gnahatakanow. Mer arduynqy khosuma ints — oraqanchyur vkayutyun ney.',
-    color: 'text-orange-600',
-    bg: 'bg-orange-50',
-  },
-];
-
-const brands = [
+const coffeeBrands = [
   'DeLonghi', 'Jura', 'Saeco', 'Philips', 'Siemens',
   'Nespresso', 'Dolce Gusto', 'Melitta', 'Krups', 'Bosch',
-  'Breville', 'Rancilio', 'La Marzocco', 'Lavazza', 'Illy',
+  'Breville', 'Rancilio', 'Lavazza', 'Illy',
 ];
 
-const timeline = [
-  {
-    year: '2014',
-    title: 'Tzarayutyany Bazkvel E',
-    desc: '911 Servis-y hashvark bazkvel e Yerevanum or tari mej darzav heravor tzarayutyun. Shnuty mek varpetn er kofe meqenayeri masnagitatsutyamb.',
-  },
-  {
-    year: '2018',
-    title: 'Masnagitatsutyun Kofe Meqenayerum',
-    desc: 'Ays tarits mer himnakan uzatsutsutyuny darzav kofe meqenayery. Gortsarkel enq bolor khansneri aperandanishneri het ev zaracinenq mez mekelner kakhardanq.',
-  },
-  {
-    year: '2024',
-    title: '500+ Hajoghakabar Veranoroglum',
-    desc: 'Aysor avelyi kam 500 gahardin enq veranoroglel kofe meqenayery ev kentzaghain tekhnika Yerevanum. Mer Google varkanichy mer 4.9 astgha.',
-  },
-];
+const valueIcons = [Award, Shield, Users, Star];
+const valueColors = ['text-blue-600', 'text-green-600', 'text-purple-600', 'text-orange-600'];
+const valueBgs = ['bg-blue-50', 'bg-green-50', 'bg-purple-50', 'bg-orange-50'];
 
 export default function AboutPage() {
+  const { t } = useLang();
+  const a = t.about;
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -83,22 +36,15 @@ export default function AboutPage() {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block text-blue-400 text-sm font-semibold tracking-wider uppercase mb-4">
-                Mer Masin
+                {a.badge}
               </span>
               <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
-                Veranorelnу
+                {a.title}
                 <br />
-                <span className="text-blue-400">Vistahvutyamb</span>
+                <span className="text-blue-400">{a.title_accent}</span>
               </h1>
-              <p className="text-white/60 text-lg leading-relaxed mb-6">
-                911 Servis-y hashvark bazkvel e 2014 tvakani — kofe meqenayeri veranoroglman
-                vra masnagitatsutyamb tzarayutyun matecem mez hatchordnerun.
-              </p>
-              <p className="text-white/40 text-base leading-relaxed">
-                Mer varpeты ogtagortsel e DeLonghi, Jura, Saeco, Philips, Nespresso, Siemens,
-                Bosch ev bazmator aperandanishneri het. Bolor veranoroglmanery irakanatvum en
-                12 amisov yerashquiqov.
-              </p>
+              <p className="text-white/60 text-lg leading-relaxed mb-4">{a.subtitle}</p>
+              <p className="text-white/40 text-base leading-relaxed">{a.subtitle2}</p>
             </motion.div>
 
             {/* Stats grid */}
@@ -108,10 +54,10 @@ export default function AboutPage() {
               transition={{ delay: 0.3, duration: 0.7 }}
               className="grid grid-cols-2 gap-4"
             >
-              {stats.map((stat) => (
+              {a.stats.map((stat, i) => (
                 <div
-                  key={stat.label}
-                  className="p-7 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/8 transition-colors"
+                  key={i}
+                  className="p-7 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/[0.08] transition-colors"
                 >
                   <div className="text-3xl lg:text-4xl font-black text-white mb-1">{stat.value}</div>
                   <div className="text-blue-400 text-xs font-semibold mb-1">{stat.label}</div>
@@ -132,16 +78,16 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-black text-gray-900 mb-4">Mer Pahanjum</h2>
-            <p className="text-gray-500 text-lg">Ays inchpes horegrel enq mer tzarayutyunny</p>
+            <h2 className="text-4xl font-black text-gray-900 mb-4">{a.timelineTitle}</h2>
+            <p className="text-gray-500 text-lg">{a.timelineSubtitle}</p>
           </motion.div>
 
           <div className="relative">
             <div className="absolute left-[4.5rem] sm:left-20 top-0 bottom-0 w-px bg-gray-100" />
             <div className="space-y-12">
-              {timeline.map((item, i) => (
+              {a.timeline.map((item, i) => (
                 <motion.div
-                  key={item.year}
+                  key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -172,32 +118,35 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-black text-gray-900 mb-4">Mer Ardrunqnery</h2>
-            <p className="text-gray-500 text-lg">Amen inch inchu yntrum en mer tzarayutyunn</p>
+            <h2 className="text-4xl font-black text-gray-900 mb-4">{a.valuesTitle}</h2>
+            <p className="text-gray-500 text-lg">{a.valuesSubtitle}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {values.map((v, i) => (
-              <motion.div
-                key={v.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="bg-white p-7 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className={`w-12 h-12 ${v.bg} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}>
-                  <v.icon className={`w-6 h-6 ${v.color}`} />
-                </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{v.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
-              </motion.div>
-            ))}
+            {a.values.map((v, i) => {
+              const Icon = valueIcons[i % valueIcons.length];
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="bg-white p-7 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className={`w-12 h-12 ${valueBgs[i % 4]} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}>
+                    <Icon className={`w-6 h-6 ${valueColors[i % 4]}`} />
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">{v.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Brands */}
+      {/* Brands — logos */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -206,21 +155,20 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl font-black text-gray-900 mb-2">Oroshinum Enq Aperandanishner</h2>
-            <p className="text-gray-500">Kofe meqenayeri aperandanishner, oronts het ashxatum enq</p>
+            <h2 className="text-3xl font-black text-gray-900 mb-2">{a.brandsTitle}</h2>
+            <p className="text-gray-500">{a.brandsSubtitle}</p>
           </motion.div>
           <div className="flex flex-wrap justify-center gap-3">
-            {brands.map((brand, i) => (
-              <motion.span
+            {coffeeBrands.map((brand, i) => (
+              <motion.div
                 key={brand}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-600 text-sm font-medium hover:bg-blue-50 hover:border-blue-100 hover:text-blue-700 transition-all duration-200 cursor-default"
               >
-                {brand}
-              </motion.span>
+                <BrandLogo brand={brand} className="h-9" />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -229,13 +177,13 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-black text-gray-900 mb-4">Hetaqrqutyun Ouneyq?</h2>
-          <p className="text-gray-500 mb-8">Kap hastatets mez het — anvechar axtorosum beraynov</p>
+          <h2 className="text-3xl font-black text-gray-900 mb-4">{a.ctaTitle}</h2>
+          <p className="text-gray-500 mb-8">{a.ctaSubtitle}</p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-blue-700 transition-all hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5"
           >
-            Kap Hastatvel
+            {a.ctaBtn}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

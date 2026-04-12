@@ -3,20 +3,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
-
-const devices = [
-  'Սուրճի մեքենա (Espresso)',
-  'Սուրճի մեքենա (Ավտոմատ)',
-  'Սուրճի մեքենա (Կапсуla)',
-  'Սառnaran',
-  'Mikroalikqayin',
-  'Poшekugh',
-  'Arduk',
-  'Fen',
-  'Ayl sark',
-];
+import { useLang } from '@/contexts/LanguageContext';
 
 export default function ContactPage() {
+  const { t } = useLang();
+  const c = t.contact;
+
   const [form, setForm] = useState({ name: '', phone: '', device: '', problem: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -43,14 +35,12 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
           >
             <span className="inline-block text-blue-400 text-sm font-semibold tracking-wider uppercase mb-4">
-              Կապ
+              {c.badge}
             </span>
             <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
-              Կапворвеք <span className="text-blue-400">Հиман</span>
+              {c.title} <span className="text-blue-400">{c.title_accent}</span>
             </h1>
-            <p className="text-white/60 text-lg max-w-xl mx-auto leading-relaxed">
-              Թողեք հայтарар — մер վারपеты ձеp tнум ккanom erku жамvа mej
-            </p>
+            <p className="text-white/60 text-lg max-w-xl mx-auto leading-relaxed">{c.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -65,7 +55,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-black text-gray-900 mb-8">Կap Tnorinnery</h2>
+              <h2 className="text-3xl font-black text-gray-900 mb-8">{c.infoTitle}</h2>
 
               <div className="space-y-4 mb-10">
                 <a
@@ -76,9 +66,9 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">Հеляхос</p>
+                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">{c.phone_label}</p>
                     <p className="text-gray-900 font-bold text-xl">+374 94 911 911</p>
-                    <p className="text-gray-400 text-sm mt-0.5">Zangel ев kstanank 2 жamvum</p>
+                    <p className="text-gray-400 text-sm mt-0.5">{c.phone_sub}</p>
                   </div>
                 </a>
 
@@ -94,7 +84,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">WhatsApp</p>
                     <p className="text-gray-900 font-bold text-xl">+374 94 911 911</p>
-                    <p className="text-gray-400 text-sm mt-0.5">Grел haghordagrutyun ayl ekhas</p>
+                    <p className="text-gray-400 text-sm mt-0.5">{c.wa_sub}</p>
                   </div>
                 </a>
 
@@ -103,9 +93,9 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-orange-500" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">Tesagutyun</p>
-                    <p className="text-gray-900 font-bold">Yerevan, Hayastan</p>
-                    <p className="text-gray-400 text-sm mt-0.5">Tanal tzarayutyun (home service)</p>
+                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">{c.location_label}</p>
+                    <p className="text-gray-900 font-bold">{c.location_val}</p>
+                    <p className="text-gray-400 text-sm mt-0.5">{c.location_sub}</p>
                   </div>
                 </div>
 
@@ -114,15 +104,15 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-purple-500" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-2">Ashxatavayrk</p>
+                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-2">{c.hours_label}</p>
                     <div className="space-y-1.5">
                       <div className="flex justify-between gap-12 text-sm">
-                        <span className="text-gray-500">Erknushabthi – Uram</span>
-                        <span className="text-gray-900 font-semibold">9:00 – 21:00</span>
+                        <span className="text-gray-500">{c.hours_weekday}</span>
+                        <span className="text-gray-900 font-semibold">{t.footer.hours_range1}</span>
                       </div>
                       <div className="flex justify-between gap-12 text-sm">
-                        <span className="text-gray-500">Kiraqi</span>
-                        <span className="text-gray-900 font-semibold">10:00 – 18:00</span>
+                        <span className="text-gray-500">{c.hours_weekend}</span>
+                        <span className="text-gray-900 font-semibold">{t.footer.hours_range2}</span>
                       </div>
                     </div>
                   </div>
@@ -148,8 +138,8 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-black text-gray-900 mb-2">Amragrvel Veranoroglum</h2>
-              <p className="text-gray-500 mb-8">Lrakek formy — kzangaharenk shtutyamb</p>
+              <h2 className="text-3xl font-black text-gray-900 mb-2">{c.bookTitle}</h2>
+              <p className="text-gray-500 mb-8">{c.bookSubtitle}</p>
 
               {submitted ? (
                 <motion.div
@@ -160,30 +150,28 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Hajoghakutyamb!</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-                    Dzez haydnutyun karox en anel ev mer varpeты kzangaharel 2 jhamvа mej
-                  </p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{c.form.successTitle}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed max-w-xs">{c.form.successText}</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Anun <span className="text-red-500">*</span>
+                      {c.form.name} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder="Dzez anun ev azganun"
+                      placeholder={c.form.namePlaceholder}
                       className="w-full px-4 py-3.5 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400 text-sm transition-all placeholder:text-gray-300"
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Helaтelahosы <span className="text-red-500">*</span>
+                      {c.form.phone} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -197,7 +185,7 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Sarky <span className="text-red-500">*</span>
+                      {c.form.device} <span className="text-red-500">*</span>
                     </label>
                     <select
                       required
@@ -205,8 +193,8 @@ export default function ContactPage() {
                       onChange={(e) => setForm({ ...form, device: e.target.value })}
                       className="w-full px-4 py-3.5 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400 text-sm bg-white transition-all"
                     >
-                      <option value="">Entrel sarqy</option>
-                      {devices.map((d) => (
+                      <option value="">{c.form.devicePlaceholder}</option>
+                      {c.devices.map((d) => (
                         <option key={d} value={d}>{d}</option>
                       ))}
                     </select>
@@ -214,13 +202,13 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Xndir
+                      {c.form.problem}
                     </label>
                     <textarea
                       rows={4}
                       value={form.problem}
                       onChange={(e) => setForm({ ...form, problem: e.target.value })}
-                      placeholder="Noragerel xndir-ы — inchov e kapsverets, erkb e sksvel..."
+                      placeholder={c.form.problemPlaceholder}
                       className="w-full px-4 py-3.5 rounded-2xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400 text-sm resize-none transition-all placeholder:text-gray-300"
                     />
                   </div>
@@ -233,19 +221,17 @@ export default function ContactPage() {
                     {loading ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Uрkanum...
+                        {c.form.submitting}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Urkel Haytararutyun
+                        {c.form.submit}
                       </>
                     )}
                   </button>
 
-                  <p className="text-gray-400 text-xs text-center leading-relaxed">
-                    Haytararutyun urelov dzez kam zgum en 2 jhamva yntatsqum
-                  </p>
+                  <p className="text-gray-400 text-xs text-center leading-relaxed">{c.form.footNote}</p>
                 </form>
               )}
             </motion.div>
