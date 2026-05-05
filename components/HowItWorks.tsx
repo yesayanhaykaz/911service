@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Search, Wrench, CheckCircle } from 'lucide-react';
+import { Phone, Search, Wrench, CheckCircle, UserPlus } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 
 const stepIcons = [Phone, Search, Wrench, CheckCircle];
@@ -62,13 +62,23 @@ export default function HowItWorks() {
           viewport={{ once: true }} transition={{ delay: 0.5, duration: 0.6 }}
           className="mt-20 text-center"
         >
-          <a
-            href="tel:+37455721777"
-            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
-          >
-            <Phone className="w-5 h-5" />
-            {t.howItWorks.cta}
-          </a>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="tel:+37455721777"
+              className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
+            >
+              <Phone className="w-5 h-5" />
+              {t.howItWorks.cta}
+            </a>
+            <a
+              href="/vardan-contact.vcf"
+              download
+              className="inline-flex items-center gap-3 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <UserPlus className="w-5 h-5 text-purple-400" />
+              Save contact
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

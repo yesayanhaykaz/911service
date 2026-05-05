@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Clock, Send, CheckCircle, UserPlus } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 
 export default function ContactPage() {
@@ -69,6 +69,21 @@ export default function ContactPage() {
                     <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">{c.phone_label}</p>
                     <p className="text-gray-900 font-bold text-xl">+374 55 721 777</p>
                     <p className="text-gray-400 text-sm mt-0.5">{c.phone_sub}</p>
+                  </div>
+                </a>
+
+                <a
+                  href="/vardan-contact.vcf"
+                  download
+                  className="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-purple-100 hover:shadow-lg transition-all duration-200 group cursor-pointer"
+                >
+                  <div className="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-purple-500 group-hover:scale-110 transition-all duration-200">
+                    <UserPlus className="w-5 h-5 text-purple-500 group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-1">Save Contact</p>
+                    <p className="text-gray-900 font-bold text-xl">+374 55 721 777</p>
+                    <p className="text-gray-400 text-sm mt-0.5">Save to your phone contacts</p>
                   </div>
                 </a>
 

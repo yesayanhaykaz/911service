@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Phone, MessageCircle, CheckCircle, ArrowRight, Star } from 'lucide-react';
+import { Phone, MessageCircle, CheckCircle, ArrowRight, Star, UserPlus } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import type { ServiceKey } from '@/locales';
 import { BrandLogo } from '@/components/BrandLogos';
@@ -79,6 +79,14 @@ export default function ServicePageTemplate({
               >
                 <MessageCircle className="w-4 h-4 text-green-400" />
                 WhatsApp
+              </a>
+              <a
+                href="/vardan-contact.vcf"
+                download
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3.5 rounded-2xl font-semibold transition-all backdrop-blur-sm hover:-translate-y-0.5"
+              >
+                <UserPlus className="w-4 h-4 text-purple-400" />
+                Save contact
               </a>
             </div>
           </motion.div>
@@ -196,6 +204,14 @@ export default function ServicePageTemplate({
                 <MessageCircle className="w-5 h-5 text-green-400" />
                 WhatsApp
                 <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="/vardan-contact.vcf"
+                download
+                className="flex items-center justify-center gap-2 bg-white/[0.08] hover:bg-white/[0.12] text-white border border-white/15 px-8 py-4 rounded-2xl font-semibold transition-all"
+              >
+                <UserPlus className="w-5 h-5 text-purple-400" />
+                Save contact
               </a>
             </div>
           </motion.div>
