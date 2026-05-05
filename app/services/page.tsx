@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Coffee, Wind, Zap, Car, Lightbulb, ArrowRight, MessageCircle } from 'lucide-react';
+import { Coffee, Wind, Zap, Car, Lightbulb, Bot, ArrowRight, MessageCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 
-const wa = (msg: string) => `https://wa.me/37494911911?text=${encodeURIComponent(msg)}`;
+const wa = (msg: string) => `https://wa.me/37455721777?text=${encodeURIComponent(msg)}`;
 
 export default function ServicesPage() {
   const { t } = useLang();
@@ -15,72 +15,74 @@ export default function ServicesPage() {
     {
       key: 'coffeeMachine' as const,
       icon: Coffee,
-      image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=80&fit=crop',
+      image: 'https://i.pinimg.com/1200x/f3/37/e2/f337e25fb343307928bb3a665d455ecc.jpg',
       featured: true,
-      accent: 'blue',
       accentBg: 'bg-blue-600',
       accentText: 'text-blue-600',
-      desc: 'Espresso, automatic, capsule — all brands, all models. Fast professional repair.',
     },
     {
-      key: 'microwave' as const,
-      icon: Zap,
-      image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80&fit=crop',
+      key: 'robotVacuum' as const,
+      icon: Bot,
+      image: 'https://i.pinimg.com/1200x/ef/c9/f2/efc9f2b8633c85646569f466f84a86b3.jpg',
       featured: false,
-      accent: 'orange',
-      accentBg: 'bg-orange-500',
-      accentText: 'text-orange-600',
-      desc: 'Standard and combi microwaves. Magnetron, electronics, door mechanisms.',
+      accentBg: 'bg-cyan-600',
+      accentText: 'text-cyan-600',
     },
     {
       key: 'vacuum' as const,
       icon: Wind,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop',
+      image: 'https://i.pinimg.com/736x/cd/60/b5/cd60b51452be793ea21cb1ecb5e0ae82.jpg',
       featured: false,
-      accent: 'purple',
       accentBg: 'bg-purple-500',
       accentText: 'text-purple-600',
-      desc: 'Upright, canister, robot vacuums. Motor, suction, filters.',
     },
     {
-      key: 'iron' as const,
+      key: 'microwave' as const,
       icon: Zap,
-      image: 'https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=600&q=80&fit=crop',
+      image: 'https://i.pinimg.com/736x/15/1e/87/151e87e87a2130eeaf833d04b5aab215.jpg',
       featured: false,
-      accent: 'indigo',
-      accentBg: 'bg-indigo-500',
-      accentText: 'text-indigo-600',
-      desc: 'Steam irons and generator stations. Heating element, steam system.',
+      accentBg: 'bg-orange-500',
+      accentText: 'text-orange-600',
     },
     {
       key: 'hairDryer' as const,
       icon: Wind,
-      image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&fit=crop',
+      image: 'https://i.pinimg.com/736x/d0/55/85/d055851dd1d9e54374fe277059d57852.jpg',
       featured: false,
-      accent: 'pink',
       accentBg: 'bg-pink-500',
       accentText: 'text-pink-600',
-      desc: 'Hair dryers, straighteners, all hair care appliances.',
+    },
+    {
+      key: 'iron' as const,
+      icon: Zap,
+      image: 'https://i.pinimg.com/1200x/0b/1d/b5/0b1db5099caf83356bb4be3b7bbd4a3d.jpg',
+      featured: false,
+      accentBg: 'bg-indigo-500',
+      accentText: 'text-indigo-600',
+    },
+    {
+      key: 'ironAir' as const,
+      icon: Zap,
+      image: 'https://i.pinimg.com/736x/3c/63/e2/3c63e253d80e11ab73e1003f76f493be.jpg',
+      featured: false,
+      accentBg: 'bg-teal-500',
+      accentText: 'text-teal-600',
     },
     {
       key: 'carCharger' as const,
       icon: Car,
-      image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80&fit=crop',
+      image: 'https://i.pinimg.com/1200x/10/87/bc/1087bcdfbf193bb0fb3ef9955123ecae.jpg',
       featured: false,
-      accent: 'green',
       accentBg: 'bg-green-500',
       accentText: 'text-green-600',
-      desc: 'Home EV charging station installation. All types of chargers.',
     },
     {
       key: 'homeElectrical' as const,
       icon: Lightbulb,
-      image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80&fit=crop',
+      image: 'https://i.pinimg.com/736x/ec/5d/6a/ec5d6af5a7a1db1e7bca7d4912a39acd.jpg',
       featured: false,
-      accent: 'yellow',
       accentBg: 'bg-yellow-500',
       accentText: 'text-yellow-600',
-      desc: 'Lighting, sockets, panels, wiring. All home electrical work.',
     },
   ];
 
@@ -133,7 +135,6 @@ export default function ServicesPage() {
                         <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Core Specialty</span>
                       </div>
                       <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">{entry.name}</h2>
-                      <p className="text-white/60 text-lg mb-8 max-w-lg">{svc.desc}</p>
                       <div className="flex flex-wrap gap-3">
                         <Link href={`/services/${entry.slug}`} className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-2xl font-semibold text-sm transition-all hover:shadow-xl hover:shadow-blue-600/30 group/btn">
                           {t.services.featured_cta} <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
@@ -155,7 +156,6 @@ export default function ServicesPage() {
                 viewport={{ once: true }} transition={{ delay: (i % 4) * 0.07, duration: 0.5 }}
                 className="group rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 bg-white flex flex-col sm:flex-row"
               >
-                {/* Image */}
                 <div className="relative w-full sm:w-56 h-48 sm:h-auto shrink-0 overflow-hidden">
                   <Image src={svc.image} alt={entry.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className={`absolute top-4 left-4 w-10 h-10 ${svc.accentBg} rounded-xl flex items-center justify-center shadow-lg`}>
@@ -163,15 +163,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="flex flex-col justify-between p-6 flex-1">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{entry.name}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-4">{svc.desc}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <Link href={`/services/${entry.slug}`} className={`inline-flex items-center gap-1.5 ${svc.accentText} text-sm font-semibold hover:underline`}>
-                      Learn more <ArrowRight className="w-3.5 h-3.5" />
+                      {t.services.featured_cta} <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <span className="text-gray-200 text-sm">|</span>
                     <a href={wa(entry.waMsg)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-green-600 text-sm font-semibold hover:underline">

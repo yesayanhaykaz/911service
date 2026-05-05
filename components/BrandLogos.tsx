@@ -237,6 +237,78 @@ export function XiaomiLogo({ className = 'h-6', dark }: LogoProps) {
   );
 }
 
+export function NuovaSimonelliLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 160 32" className={className} fill="none">
+      <rect width="160" height="32" rx="4" fill={dark ? 'rgba(255,255,255,0.12)' : '#1a1a1a'} />
+      <text x="8" y="21" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="11" fill="white" letterSpacing="0.5">NUOVA SIMONELLI</text>
+    </svg>
+  );
+}
+
+export function LaMarzoccoLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 140 32" className={className} fill="none">
+      <rect width="140" height="32" rx="4" fill="#8B0000" />
+      <text x="8" y="21" fontFamily="Georgia,serif" fontWeight="700" fontSize="12" fill="white" letterSpacing="0.5">La Marzocco</text>
+    </svg>
+  );
+}
+
+export function GaggiaLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 95 32" className={className} fill="none">
+      <rect width="95" height="32" rx="4" fill="#C0392B" />
+      <text x="10" y="22" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="14" fill="white" letterSpacing="1">GAGGIA</text>
+    </svg>
+  );
+}
+
+export function ECMLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 70 32" className={className} fill="none">
+      <rect width="70" height="32" rx="4" fill="#2C3E50" />
+      <text x="12" y="22" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="14" fill="white" letterSpacing="2">ECM</text>
+    </svg>
+  );
+}
+
+export function LelitLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 80 32" className={className} fill="none">
+      <rect width="80" height="32" rx="4" fill="#1A3A6B" />
+      <text x="12" y="22" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="14" fill="white" letterSpacing="1.5">LELIT</text>
+    </svg>
+  );
+}
+
+export function RocketEspressoLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 160 32" className={className} fill="none">
+      <rect width="160" height="32" rx="4" fill={dark ? 'rgba(255,255,255,0.12)' : '#111'} />
+      <text x="8" y="22" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="12" fill="white" letterSpacing="1">ROCKET ESPRESSO</text>
+    </svg>
+  );
+}
+
+export function VictoriaArdiunoLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 165 32" className={className} fill="none">
+      <rect width="165" height="32" rx="4" fill="#1a1a1a" />
+      <text x="8" y="21" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="11" fill="#D4AF37" letterSpacing="0.5">VICTORIA ARDUINO</text>
+    </svg>
+  );
+}
+
+export function BezzeraLogo({ className = 'h-6', dark }: LogoProps) {
+  return (
+    <svg viewBox="0 0 110 32" className={className} fill="none">
+      <rect width="110" height="32" rx="4" fill="#003366" />
+      <text x="8" y="22" fontFamily="Arial,sans-serif" fontWeight="700" fontSize="14" fill="white" letterSpacing="1">BEZZERA</text>
+    </svg>
+  );
+}
+
 // ─── Type badges (for coffee machine page) ───────────────────────────────────
 
 export function EspressoBadge({ className = 'h-6' }: { className?: string }) {
@@ -318,6 +390,14 @@ const BRAND_COLORS: Record<string, string> = {
   Legrand: '#6E3FA3',
   Mennekes: '#0050C8',
   Keba: '#E60028',
+  'Nuova Simonelli': '#1a1a1a',
+  'La Marzocco': '#8B0000',
+  Gaggia: '#C0392B',
+  ECM: '#2C3E50',
+  Lelit: '#1A3A6B',
+  'Rocket Espresso': '#111111',
+  'Victoria Arduino': '#1a1a1a',
+  Bezzera: '#003366',
 };
 
 interface BrandLogoProps {
@@ -352,6 +432,14 @@ export function BrandLogo({ brand, className = 'h-7', dark = false }: BrandLogoP
     Panasonic: PanasonicLogo,
     Braun: BraunLogo,
     Xiaomi: XiaomiLogo,
+    'Nuova Simonelli': NuovaSimonelliLogo,
+    'La Marzocco': LaMarzoccoLogo,
+    Gaggia: GaggiaLogo,
+    ECM: ECMLogo,
+    Lelit: LelitLogo,
+    'Rocket Espresso': RocketEspressoLogo,
+    'Victoria Arduino': VictoriaArdiunoLogo,
+    Bezzera: BezzeraLogo,
   };
 
   const Component = map[brand];

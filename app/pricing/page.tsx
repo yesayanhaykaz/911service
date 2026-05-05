@@ -120,11 +120,11 @@ export default function PricingPage() {
           <h2 className="text-3xl font-black text-gray-900 mb-4">{p.ctaTitle}</h2>
           <p className="text-gray-500 mb-8">{p.ctaSubtitle}</p>
           <a
-            href="tel:+37494911911"
+            href="tel:+37455721777"
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-blue-700 transition-all hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5"
           >
             <Phone className="w-5 h-5" />
-            +374 94 911 911
+            +374 55 721 777
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

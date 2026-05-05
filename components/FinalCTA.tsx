@@ -42,7 +42,7 @@ export default function FinalCTA() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+37494911911"
+                href="tel:+37455721777"
                 className="group flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
@@ -50,7 +50,7 @@ export default function FinalCTA() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href={`https://wa.me/37494911911?text=${encodeURIComponent(t.services_list.coffeeMachine.waMsg)}`}
+                href={`https://wa.me/37455721777?text=${encodeURIComponent(t.services_list.coffeeMachine.waMsg)}`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
               >

@@ -21,7 +21,7 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Hero background image */}
       <Image
-        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80&fit=crop"
+        src="https://i.pinimg.com/1200x/5e/cc/3b/5ecc3b17b600153a33acb142c66bbc55.jpg"
         alt="Coffee machine"
         fill
         className="object-cover"
@@ -70,7 +70,7 @@ export default function Hero() {
               className="flex flex-wrap gap-3 mb-12"
             >
               <a
-                href="tel:+37494911911"
+                href="tel:+37455721777"
                 className="group flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
@@ -78,7 +78,7 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href={`https://wa.me/37494911911?text=${encodeURIComponent(t.services_list.coffeeMachine.waMsg)}`}
+                href={`https://wa.me/37455721777?text=${encodeURIComponent(t.services_list.coffeeMachine.waMsg)}`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2.5 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5 backdrop-blur-sm"
               >

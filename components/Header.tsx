@@ -80,7 +80,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher dark={isDark} />
             <a
-              href="tel:+37494911911"
+              href="tel:+37455721777"
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                 isDark ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
@@ -89,7 +89,7 @@ export default function Header() {
               {t.nav.phone}
             </a>
             <a
-              href={`https://wa.me/37494911911?text=${encodeURIComponent(t.nav.book)}`}
+              href={`https://wa.me/37455721777?text=${encodeURIComponent(t.nav.book)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
@@ -134,14 +134,14 @@ export default function Header() {
             ))}
             <div className="pt-3 flex flex-col gap-2">
               <a
-                href="tel:+37494911911"
+                href="tel:+37455721777"
                 className="flex items-center justify-center gap-2 bg-gray-50 text-gray-800 px-4 py-3 rounded-xl text-sm font-semibold"
               >
                 <Phone className="w-4 h-4 text-blue-600" />
                 {t.nav.phone}
               </a>
               <a
-                href={`https://wa.me/37494911911?text=${encodeURIComponent(t.nav.book)}`}
+                href={`https://wa.me/37455721777?text=${encodeURIComponent(t.nav.book)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-xl text-sm font-semibold"

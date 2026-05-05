@@ -15,7 +15,7 @@ interface ServicePageProps {
   accentBg?: string;
 }
 
-const wa = (msg: string) => `https://wa.me/37494911911?text=${encodeURIComponent(msg)}`;
+const wa = (msg: string) => `https://wa.me/37455721777?text=${encodeURIComponent(msg)}`;
 
 export default function ServicePageTemplate({
   serviceKey,
@@ -65,11 +65,11 @@ export default function ServicePageTemplate({
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="tel:+37494911911"
+                href="tel:+37455721777"
                 className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3.5 rounded-2xl font-semibold transition-all hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-4 h-4" />
-                +374 94 911 911
+                +374 55 721 777
               </a>
               <a
                 href={wa(entry.waMsg)}
@@ -181,7 +181,7 @@ export default function ServicePageTemplate({
             <p className="text-white/50 text-lg mb-8">{s.ctaSubtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+37494911911"
+                href="tel:+37455721777"
                 className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
