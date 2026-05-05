@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Coffee, Snowflake, Wind, Zap, Car, Lightbulb, ArrowRight, MessageCircle } from 'lucide-react';
+import { Coffee, Wind, Zap, Car, Lightbulb, ArrowRight, MessageCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { DeLonghiLogo, JuraLogo, NespressoLogo, SaecoLogo, PhilipsLogo, EspressoBadge, AutomaticBadge, CapsuleBadge } from './BrandLogos';
 
@@ -21,12 +21,6 @@ export default function Services() {
   const { t } = useLang();
 
   const secondaryServices = [
-    {
-      icon: Snowflake,
-      key: 'refrigerator' as const,
-      color: 'text-cyan-500', bg: 'bg-cyan-50',
-      image: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=400&q=80&fit=crop',
-    },
     {
       icon: Zap,
       key: 'microwave' as const,

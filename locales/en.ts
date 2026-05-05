@@ -152,29 +152,6 @@ export const en = {
       ],
       brands: ['DeLonghi', 'Jura', 'Saeco', 'Philips', 'Siemens', 'Nespresso', 'Melitta', 'Krups', 'Bosch', 'Breville', 'Rancilio', 'Lavazza', 'Illy', 'Dolce Gusto'],
     },
-    refrigerator: {
-      heroTagline: 'Household Appliance Repair',
-      description: 'Fast and reliable refrigerator repair at your home. All types — single-door, double-door, side-by-side — all major brands.',
-      problems: [
-        { title: 'Not cooling', desc: 'Refrigerator not maintaining temperature, food spoiling quickly' },
-        { title: 'Freezer not freezing', desc: 'Freezer section not reaching correct temperature' },
-        { title: 'Water pooling inside', desc: 'Water accumulating at the bottom of the fridge' },
-        { title: 'Unusual noises', desc: 'Loud humming, clicking or rattling sounds from the unit' },
-        { title: 'Frost buildup', desc: 'Excessive ice forming in freezer or on coils' },
-        { title: 'Door seal problems', desc: 'Door not sealing properly, warm air entering' },
-      ],
-      repairTypes: [
-        'Compressor testing and replacement',
-        'Refrigerant recharge and leak detection',
-        'Defrost heater and thermostat repair',
-        'Evaporator and condenser coil service',
-        'Door gasket / seal replacement',
-        'Thermostat and temperature control repair',
-        'Fan motor replacement',
-        'Control board diagnostics',
-      ],
-      brands: ['Samsung', 'LG', 'Bosch', 'Indesit', 'Whirlpool', 'Siemens', 'Beko', 'Hotpoint', 'Electrolux', 'Haier'],
-    },
     microwave: {
       heroTagline: 'Household Appliance Repair',
       description: 'Expert microwave and combination oven repair. Standard, grill combo, and convection models from all major brands.',
@@ -339,15 +316,6 @@ export const en = {
         ],
       },
       {
-        category: 'Refrigerator',
-        items: [
-          { service: 'Diagnosis', price: 'Free*', note: '' },
-          { service: 'Refrigerant recharge / leak check', price: '15,000–30,000 ֏', note: '' },
-          { service: 'Compressor replacement', price: '30,000–70,000 ֏', note: 'Depends on model' },
-          { service: 'Defrost heater / thermostat', price: '8,000–18,000 ֏', note: '' },
-        ],
-      },
-      {
         category: 'Household Appliances',
         items: [
           { service: 'Diagnosis', price: 'Free*', note: 'If repair ordered' },
@@ -440,7 +408,6 @@ export const en = {
       'Coffee Machine (Espresso)',
       'Coffee Machine (Automatic)',
       'Coffee Machine (Capsule)',
-      'Refrigerator',
       'Microwave',
       'Vacuum Cleaner',
       'Iron',
@@ -453,7 +420,6 @@ export const en = {
 
   services_list: {
     coffeeMachine: { name: 'Coffee Machine', slug: 'coffee-machine', waMsg: 'Hello, I need help with my coffee machine' },
-    refrigerator: { name: 'Refrigerator', slug: 'refrigerator', waMsg: 'Hello, I need help with my refrigerator' },
     microwave: { name: 'Microwave', slug: 'microwave', waMsg: 'Hello, I need help with my microwave' },
     vacuum: { name: 'Vacuum Cleaner', slug: 'vacuum', waMsg: 'Hello, I need help with my vacuum cleaner' },
     iron: { name: 'Iron', slug: 'iron', waMsg: 'Hello, I need help with my iron' },

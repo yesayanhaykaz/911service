@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Coffee, Snowflake, Wind, Zap, Car, Lightbulb, ArrowRight, MessageCircle } from 'lucide-react';
+import { Coffee, Wind, Zap, Car, Lightbulb, ArrowRight, MessageCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 
 const wa = (msg: string) => `https://wa.me/37494911911?text=${encodeURIComponent(msg)}`;
@@ -21,16 +21,6 @@ export default function ServicesPage() {
       accentBg: 'bg-blue-600',
       accentText: 'text-blue-600',
       desc: 'Espresso, automatic, capsule — all brands, all models. Fast professional repair.',
-    },
-    {
-      key: 'refrigerator' as const,
-      icon: Snowflake,
-      image: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=600&q=80&fit=crop',
-      featured: false,
-      accent: 'cyan',
-      accentBg: 'bg-cyan-500',
-      accentText: 'text-cyan-600',
-      desc: 'All types and brands. Compressor, cooling circuit, electronics.',
     },
     {
       key: 'microwave' as const,
