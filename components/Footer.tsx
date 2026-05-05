@@ -37,7 +37,7 @@ export default function Footer() {
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-6">{t.footer.desc}</p>
             <div className="flex gap-3">
-              <a href="tel:+37455721777" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-600 flex items-center justify-center transition-colors duration-200">
+              <a href="/vardan-contact.vcf" download className="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-600 flex items-center justify-center transition-colors duration-200">
                 <Phone className="w-4 h-4 text-white/60" />
               </a>
               <a href="https://wa.me/37455721777" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-green-600 flex items-center justify-center transition-colors duration-200">
@@ -80,7 +80,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
-                <a href="tel:+37455721777" className="text-white/70 hover:text-white text-sm transition-colors">{t.nav.phone}</a>
+                <a href="/vardan-contact.vcf" download className="text-white/70 hover:text-white text-sm transition-colors">{t.nav.phone}</a>
               </li>
               <li className="flex items-start gap-3">
                 <MessageCircle className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />

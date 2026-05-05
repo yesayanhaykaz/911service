@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Phone, MessageCircle, X, UserPlus } from 'lucide-react';
+import { Phone, MessageCircle, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function StickyCallButton() {
@@ -38,7 +38,7 @@ export default function StickyCallButton() {
                 className="flex flex-col gap-3"
               >
                 <a
-                  href="tel:+37455721777"
+                  href="/vardan-contact.vcf" download
                   className="flex items-center gap-3 bg-white shadow-2xl border border-gray-100 rounded-2xl px-4 py-3 group hover:shadow-blue-500/10 transition-shadow"
                 >
                   <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -61,19 +61,6 @@ export default function StickyCallButton() {
                   <div>
                     <p className="text-xs text-gray-400 leading-none mb-0.5">WhatsApp</p>
                     <p className="text-sm font-bold text-gray-900">Գրել հաղորդագրություն</p>
-                  </div>
-                </a>
-                <a
-                  href="/vardan-contact.vcf"
-                  download
-                  className="flex items-center gap-3 bg-white shadow-2xl border border-gray-100 rounded-2xl px-4 py-3 group hover:shadow-purple-500/10 transition-shadow"
-                >
-                  <div className="w-9 h-9 bg-purple-500 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <UserPlus className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 leading-none mb-0.5">Պահպանել</p>
-                    <p className="text-sm font-bold text-gray-900">Save contact</p>
                   </div>
                 </a>
               </motion.div>

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Phone, MessageCircle, ArrowRight, Star, CheckCircle, UserPlus } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight, Star, CheckCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 
 const fadeUp = {
@@ -70,7 +70,7 @@ export default function Hero() {
               className="flex flex-wrap gap-3 mb-12"
             >
               <a
-                href="tel:+37455721777"
+                href="/vardan-contact.vcf" download
                 className="group flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
@@ -84,14 +84,6 @@ export default function Hero() {
               >
                 <MessageCircle className="w-5 h-5 text-green-400" />
                 {t.hero.cta_wa}
-              </a>
-              <a
-                href="/vardan-contact.vcf"
-                download
-                className="flex items-center gap-2.5 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5 backdrop-blur-sm"
-              >
-                <UserPlus className="w-5 h-5 text-purple-400" />
-                Save contact
               </a>
             </motion.div>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle, ArrowRight, UserPlus } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 
 export default function FinalCTA() {
@@ -42,7 +42,7 @@ export default function FinalCTA() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+37455721777"
+                href="/vardan-contact.vcf" download
                 className="group flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
@@ -56,14 +56,6 @@ export default function FinalCTA() {
               >
                 <MessageCircle className="w-5 h-5 text-green-400" />
                 {t.finalCta.cta_wa}
-              </a>
-              <a
-                href="/vardan-contact.vcf"
-                download
-                className="flex items-center justify-center gap-2.5 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <UserPlus className="w-5 h-5 text-purple-400" />
-                Save contact
               </a>
             </div>
           </div>
