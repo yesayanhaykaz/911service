@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Lightbulb } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Home Electrical Services — 911 Servis Yerevan',
+  title: 'Home Electrical Services — 911 Service Yerevan',
   description: 'Professional home electrical services in Yerevan. Lighting, sockets, panels, and more.',
 };
 

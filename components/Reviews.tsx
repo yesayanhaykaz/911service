@@ -8,8 +8,8 @@ const reviews = [
   { name: 'Aram H.', device: 'DeLonghi Magnifica S', text: 'Great service. The technician arrived in 1.5 hours, diagnosed the problem and fixed it the same day. Fair price, no surprises.', date: '2 weeks ago', avatar: 'A', color: 'bg-blue-600' },
   { name: 'Mariam V.', device: 'Saeco Xelsis', text: 'Very satisfied. My coffee machine was leaking water — it\'s been 3 months and everything is perfect. Trusted service.', date: '1 month ago', avatar: 'M', color: 'bg-purple-600' },
   { name: 'David K.', device: 'Philips EP2220', text: 'Fast, professional, honest. They diagnosed, gave an exact price, and repaired within a few hours. Will use again.', date: '3 weeks ago', avatar: 'D', color: 'bg-green-600' },
-  { name: 'Ani S.', device: 'Jura E6', text: 'A Jura specialist is hard to find — 911 Servis really knows what they\'re doing. Excellent result, warm approach.', date: '6 months ago', avatar: 'A', color: 'bg-orange-600' },
-  { name: 'Vardan A.', device: 'Nespresso Vertuo', text: 'Fixed within a few hours. No one arrives faster — 911 Servis is the quickest in Yerevan.', date: '2 months ago', avatar: 'V', color: 'bg-teal-600' },
+  { name: 'Ani S.', device: 'Jura E6', text: 'A Jura specialist is hard to find — 911 Service really knows what they\'re doing. Excellent result, warm approach.', date: '6 months ago', avatar: 'A', color: 'bg-orange-600' },
+  { name: 'Vardan A.', device: 'Nespresso Vertuo', text: 'Fixed within a few hours. No one arrives faster — 911 Service is the quickest in Yerevan.', date: '2 months ago', avatar: 'V', color: 'bg-teal-600' },
   { name: 'Nare M.', device: 'Siemens EQ.6', text: 'Excellent experience across the board. Got a warranty, 4 months later everything is still working perfectly.', date: '4 months ago', avatar: 'N', color: 'bg-pink-600' },
 ];
 

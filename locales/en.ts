@@ -110,7 +110,7 @@ export const en = {
     hours_range1: '9:00 – 21:00',
     hours_range2: '10:00 – 18:00',
     location: 'Yerevan, Armenia',
-    copyright: '© 2024 911 Servis. All rights reserved.',
+    copyright: '© 2024 911 Service. All rights reserved.',
     seo: 'Appliance repair in Yerevan',
   },
 
@@ -389,7 +389,7 @@ export const en = {
     badge: 'About Us',
     title: 'Repairs Done',
     title_accent: 'Right',
-    subtitle: '911 Servis has been operating since 2014, specialising in coffee machine repair and all household appliance service in Yerevan.',
+    subtitle: '911 Service has been operating since 2014, specialising in coffee machine repair and all household appliance service in Yerevan.',
     subtitle2: 'Our technician is trained on DeLonghi, Jura, Saeco, Philips, Nespresso, Siemens, Bosch and many more. All repairs come with a warranty up to 6 months.',
     stats: [
       { value: '10+', label: 'Years Experience', desc: 'In appliance repair' },
@@ -400,7 +400,7 @@ export const en = {
     timelineTitle: 'Our Story',
     timelineSubtitle: 'How we built our reputation',
     timeline: [
-      { year: '2014', title: 'Founded', desc: '911 Servis opened in Yerevan with a focus on coffee machine repair. Started with one technician and a passion for precision.' },
+      { year: '2014', title: 'Founded', desc: '911 Service opened in Yerevan with a focus on coffee machine repair. Started with one technician and a passion for precision.' },
       { year: '2018', title: 'Coffee Machine Specialisation', desc: 'We doubled down on coffee machines — training on all major brands and building a parts inventory for fast same-day repairs.' },
       { year: '2024', title: '500+ Repairs Completed', desc: 'Today we have repaired over 500 appliances in Yerevan. Our Google rating stands at 4.9 stars with 250+ verified reviews.' },
     ],

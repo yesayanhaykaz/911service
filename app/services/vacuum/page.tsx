@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Wind } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Vacuum Cleaner Repair — 911 Servis Yerevan',
+  title: 'Vacuum Cleaner Repair — 911 Service Yerevan',
   description: 'Professional vacuum cleaner repair in Yerevan. All brands and types. Fast home service.',
 };
 

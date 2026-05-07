@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Car } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'EV & Car Charger Installation — 911 Servis Yerevan',
+  title: 'EV & Car Charger Installation — 911 Service Yerevan',
   description: 'Professional EV charger and car charging station installation in Yerevan.',
 };
 

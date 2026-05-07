@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Coffee } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Coffee Machine Repair — 911 Servis Yerevan',
+  title: 'Coffee Machine Repair — 911 Service Yerevan',
   description: 'Expert coffee machine repair in Yerevan. DeLonghi, Jura, Saeco, Philips, Nespresso. Fast, professional, 12-month warranty.',
 };
 

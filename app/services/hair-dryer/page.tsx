@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Wind } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Hair Dryer Repair — 911 Servis Yerevan',
+  title: 'Hair Dryer Repair — 911 Service Yerevan',
   description: 'Professional hair dryer and hair care appliance repair in Yerevan.',
 };
 

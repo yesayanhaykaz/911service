@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Iron & Steam Station Repair — 911 Servis Yerevan',
+  title: 'Iron & Steam Station Repair — 911 Service Yerevan',
   description: 'Professional iron and steam station repair in Yerevan. All brands.',
 };
 

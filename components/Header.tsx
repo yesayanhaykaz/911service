@@ -49,7 +49,7 @@ export default function Header() {
             </div>
             <div>
               <span className={`font-bold text-base tracking-tight transition-colors ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                Servis
+                Service
               </span>
               <span className="block text-blue-600 text-[10px] font-medium leading-none -mt-0.5">
                 Yerevan

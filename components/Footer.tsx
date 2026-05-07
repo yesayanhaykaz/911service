@@ -31,7 +31,7 @@ export default function Footer() {
                 <span className="text-white font-black text-sm">911</span>
               </div>
               <div>
-                <span className="text-white font-bold text-base">Servis</span>
+                <span className="text-white font-bold text-base">Service</span>
                 <span className="block text-blue-500 text-[10px] font-medium leading-none -mt-0.5">Yerevan</span>
               </div>
             </Link>

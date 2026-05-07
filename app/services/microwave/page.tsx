@@ -3,7 +3,7 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 import { Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Microwave Repair — 911 Servis Yerevan',
+  title: 'Microwave Repair — 911 Service Yerevan',
   description: 'Professional microwave oven repair in Yerevan. All brands. Fast home service.',
 };
 
