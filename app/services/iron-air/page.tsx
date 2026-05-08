@@ -1,4 +1,12 @@
+import { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
+
+export const metadata: Metadata = {
+  title: 'Steam Iron & Steam Station Repair — 911 Service Yerevan',
+  description:
+    'Professional steam iron and steam station repair in Yerevan. Philips, Tefal, Rowenta, Bosch and more. Pickup from home, up to 6-month warranty.',
+  alternates: { canonical: 'https://911service.am/services/iron-air' },
+};
 
 export default function IronAirPage() {
   return (
