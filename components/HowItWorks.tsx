@@ -3,12 +3,14 @@
 import { motion } from 'framer-motion';
 import { Phone, Search, Wrench, CheckCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
+import { usePhoneProps } from '@/hooks/useIsMobile';
 
 const stepIcons = [Phone, Search, Wrench, CheckCircle];
 const stepBgs = ['bg-blue-600', 'bg-purple-600', 'bg-orange-600', 'bg-green-600'];
 
 export default function HowItWorks() {
   const { t } = useLang();
+  const phoneProps = usePhoneProps();
 
   return (
     <section className="py-24 lg:py-32 bg-[#080808] relative overflow-hidden">
@@ -63,8 +65,7 @@ export default function HowItWorks() {
           className="mt-20 text-center"
         >
           <a
-            href="/vardan-contact.vcf"
-            download
+            {...phoneProps}
             className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
           >
             <Phone className="w-5 h-5" />

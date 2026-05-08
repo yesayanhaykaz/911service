@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Wind } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Hair Dryer Repair — 911 Service Yerevan',
@@ -11,10 +10,7 @@ export default function HairDryerPage() {
   return (
     <ServicePageTemplate
       serviceKey="hairDryer"
-      heroImage="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1400&q=85&fit=crop"
-      icon={<Wind className="w-5 h-5 text-white" />}
-      accentColor="text-pink-600"
-      accentBg="bg-pink-600"
+      heroImage="https://i.pinimg.com/736x/d0/55/85/d055851dd1d9e54374fe277059d57852.jpg"
     />
   );
 }

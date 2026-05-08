@@ -2,29 +2,31 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Phone, MessageCircle, CheckCircle, ArrowRight, Star } from 'lucide-react';
+import { MessageCircle, CheckCircle, ArrowRight, Star } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
-import type { ServiceKey } from '@/locales';
+import type { ServiceKey as LocaleServiceKey } from '@/locales';
 import { BrandLogo } from '@/components/BrandLogos';
+import { SERVICE_META } from '@/components/ServiceMeta';
+import { usePhoneProps } from '@/hooks/useIsMobile';
+import { Phone } from 'lucide-react';
 
 interface ServicePageProps {
-  serviceKey: ServiceKey;
+  serviceKey: LocaleServiceKey;
   heroImage: string;
-  icon: React.ReactNode;
-  accentColor?: string;
-  accentBg?: string;
 }
 
 const wa = (msg: string) => `https://wa.me/37455721777?text=${encodeURIComponent(msg)}`;
 
-export default function ServicePageTemplate({
-  serviceKey,
-  heroImage,
-  icon,
-  accentColor = 'text-blue-600',
-  accentBg = 'bg-blue-600',
-}: ServicePageProps) {
+export default function ServicePageTemplate({ serviceKey, heroImage }: ServicePageProps) {
   const { t } = useLang();
+  const phoneProps = usePhoneProps();
+
+  // Derive icon + accent from ServiceMeta — consistent with main page
+  const meta = SERVICE_META[serviceKey as keyof typeof SERVICE_META];
+  const Icon = meta?.icon;
+  const accentBg = meta?.accentBg ?? 'bg-blue-600';
+  const accentColor = meta?.accentText ?? 'text-blue-600';
+
   const s = t.servicePages.shared;
   const svc = t.servicePages[serviceKey];
   const entry = t.services_list[serviceKey];
@@ -51,9 +53,11 @@ export default function ServicePageTemplate({
             className="max-w-2xl"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className={`w-10 h-10 ${accentBg} rounded-xl flex items-center justify-center`}>
-                {icon}
-              </div>
+              {Icon && (
+                <div className={`w-10 h-10 ${accentBg} rounded-xl flex items-center justify-center`}>
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+              )}
               <span className="text-white/60 text-sm font-medium uppercase tracking-wider">
                 {svc.heroTagline}
               </span>
@@ -65,7 +69,7 @@ export default function ServicePageTemplate({
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="/vardan-contact.vcf" download
+                {...phoneProps}
                 className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3.5 rounded-2xl font-semibold transition-all hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-4 h-4" />
@@ -119,7 +123,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      {/* What we repair */}
+      {/* What we repair + Brands */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -181,7 +185,7 @@ export default function ServicePageTemplate({
             <p className="text-white/50 text-lg mb-8">{s.ctaSubtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/vardan-contact.vcf" download
+                {...phoneProps}
                 className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />

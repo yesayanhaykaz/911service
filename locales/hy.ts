@@ -10,6 +10,7 @@ export const hy = {
     contact: 'Կապ',
     book: 'Ամրագրել',
     phone: '+374 55 721 777',
+    all_services: 'Բոլոր ծառայությունները',
   },
 
   hero: {
@@ -23,6 +24,12 @@ export const hy = {
     trust_repairs: '500+ վերանորոգված սարք',
     trust_warranty: 'Մինչև 6 ամիս երաշխիք',
     trust_home: 'Տնային սպասարկում Երևանում',
+    stat_repairs: '500+',
+    stat_repairs_label: 'վերանորոգ.',
+    stat_warranty: '6 ամ.',
+    stat_warranty_label: 'երաշխիք',
+    stat_pickup: '~2ժ',
+    stat_pickup_label: 'վերցնելը',
   },
 
   services: {

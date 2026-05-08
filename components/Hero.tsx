@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Phone, MessageCircle, ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { MessageCircle, ArrowRight, Star, CheckCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
+import { usePhoneProps } from '@/hooks/useIsMobile';
+import { Phone } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,6 +18,7 @@ const fadeUp = {
 
 export default function Hero() {
   const { t } = useLang();
+  const phoneProps = usePhoneProps();
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -70,7 +73,7 @@ export default function Hero() {
               className="flex flex-wrap gap-3 mb-12"
             >
               <a
-                href="/vardan-contact.vcf" download
+                {...phoneProps}
                 className="group flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
@@ -108,11 +111,12 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.03] border border-white/10 p-8 backdrop-blur-sm">
+              {/* Stats row */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
-                  { value: '500+', label: t.hero.trust_repairs.split(' ')[0] },
-                  { value: '12м', label: t.hero.trust_warranty.split(' ')[0] },
-                  { value: '2ж', label: 'response' },
+                  { value: t.hero.stat_repairs, label: t.hero.stat_repairs_label },
+                  { value: t.hero.stat_warranty, label: t.hero.stat_warranty_label },
+                  { value: t.hero.stat_pickup, label: t.hero.stat_pickup_label },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center p-3 rounded-2xl bg-white/5 border border-white/[0.08]">
                     <div className="text-2xl font-black text-white mb-1">{stat.value}</div>
@@ -121,6 +125,7 @@ export default function Hero() {
                 ))}
               </div>
 
+              {/* Google rating */}
               <div className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/[0.08]">
                 <div>
                   <div className="flex items-center gap-1 mb-1">
@@ -147,7 +152,7 @@ export default function Hero() {
                 <CheckCircle className="w-4 h-4 text-green-500" />
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-900">Repaired successfully</p>
+                <p className="text-xs font-semibold text-gray-900">{t.hero.trust_repairs}</p>
                 <p className="text-xs text-gray-400">DeLonghi Magnifica S</p>
               </div>
             </motion.div>
@@ -161,8 +166,8 @@ export default function Hero() {
                 <Phone className="w-4 h-4 text-blue-600" />
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-900">Done in 2 hours</p>
-                <p className="text-xs text-gray-400">Home service</p>
+                <p className="text-xs font-semibold text-gray-900">{t.hero.trust_home}</p>
+                <p className="text-xs text-gray-400">{t.hero.trust_warranty}</p>
               </div>
             </motion.div>
           </motion.div>

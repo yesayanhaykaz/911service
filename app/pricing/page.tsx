@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, Phone, ArrowRight, Info } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
+import { usePhoneProps } from '@/hooks/useIsMobile';
 
 export default function PricingPage() {
   const { t } = useLang();
   const p = t.pricing;
+  const phoneProps = usePhoneProps();
 
   return (
     <div className="pt-20">
@@ -120,7 +122,7 @@ export default function PricingPage() {
           <h2 className="text-3xl font-black text-gray-900 mb-4">{p.ctaTitle}</h2>
           <p className="text-gray-500 mb-8">{p.ctaSubtitle}</p>
           <a
-            href="/vardan-contact.vcf" download
+            {...phoneProps}
             className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-blue-700 transition-all hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5"
           >
             <Phone className="w-5 h-5" />

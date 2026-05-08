@@ -3,10 +3,14 @@
 import { useState, useEffect } from 'react';
 import { Phone, MessageCircle, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePhoneProps } from '@/hooks/useIsMobile';
+import { useLang } from '@/contexts/LanguageContext';
 
 export default function StickyCallButton() {
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const phoneProps = usePhoneProps();
+  const { t } = useLang();
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 2000);
@@ -37,18 +41,21 @@ export default function StickyCallButton() {
                 transition={{ duration: 0.2 }}
                 className="flex flex-col gap-3"
               >
+                {/* Phone / vCard (adaptive) */}
                 <a
-                  href="/vardan-contact.vcf" download
+                  {...phoneProps}
                   className="flex items-center gap-3 bg-white shadow-2xl border border-gray-100 rounded-2xl px-4 py-3 group hover:shadow-blue-500/10 transition-shadow"
                 >
                   <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <Phone className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 leading-none mb-0.5">Զանգ</p>
+                    <p className="text-xs text-gray-400 leading-none mb-0.5">{t.nav.phone}</p>
                     <p className="text-sm font-bold text-gray-900">+374 55 721 777</p>
                   </div>
                 </a>
+
+                {/* WhatsApp */}
                 <a
                   href="https://wa.me/37455721777"
                   target="_blank"
@@ -60,7 +67,7 @@ export default function StickyCallButton() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 leading-none mb-0.5">WhatsApp</p>
-                    <p className="text-sm font-bold text-gray-900">Գրել հաղորդագրություն</p>
+                    <p className="text-sm font-bold text-gray-900">+374 55 721 777</p>
                   </div>
                 </a>
               </motion.div>

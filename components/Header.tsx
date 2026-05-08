@@ -1,18 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import { SERVICE_KEYS, SERVICE_META } from './ServiceMeta';
+import { usePhoneProps } from '@/hooks/useIsMobile';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const { t } = useLang();
+  const phoneProps = usePhoneProps();
   const isHero = pathname === '/';
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -20,15 +26,26 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close services dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // Close mobile menu on navigation
+  useEffect(() => {
+    setMobileOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
+
   const isDark = isHero && !scrolled;
 
-  const navLinks = [
-    { href: '/', label: t.nav.home },
-    { href: '/services', label: t.nav.services },
-    { href: '/pricing', label: t.nav.pricing },
-    { href: '/about', label: t.nav.about },
-    { href: '/contact', label: t.nav.contact },
-  ];
+  const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
 
   return (
     <header
@@ -43,28 +60,108 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-white font-black text-sm">911</span>
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            {/* Icon mark — replace src with your PNG when available */}
+            <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 shrink-0">
+              <span className="text-white font-black text-sm leading-none">911</span>
             </div>
-            <div>
-              <span className={`font-bold text-base tracking-tight transition-colors ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <div className="leading-none">
+              <span
+                className={`font-bold text-base tracking-tight block transition-colors ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}
+              >
                 Service
               </span>
-              <span className="block text-blue-600 text-[10px] font-medium leading-none -mt-0.5">
-                Yerevan
-              </span>
+              <span className="text-blue-500 text-[10px] font-medium">Yerevan</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
+          <nav className="hidden lg:flex items-center gap-6">
+            <Link
+              href="/"
+              className={`text-sm font-medium transition-colors ${
+                pathname === '/'
+                  ? 'text-blue-600'
+                  : isDark
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              {t.nav.home}
+            </Link>
+
+            {/* Services with dropdown */}
+            <div ref={servicesRef} className="relative">
+              <button
+                onClick={() => setServicesOpen((o) => !o)}
+                className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                  isServicesActive
+                    ? 'text-blue-600'
+                    : isDark
+                    ? 'text-white/80 hover:text-white'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                {t.nav.services}
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    servicesOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {servicesOpen && (
+                <div className="absolute left-0 top-full mt-3 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden py-2">
+                  {/* All services link */}
+                  <Link
+                    href="/services"
+                    onClick={() => setServicesOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-blue-600 hover:bg-blue-50 transition-colors border-b border-gray-100 mb-1"
+                  >
+                    {t.nav.all_services}
+                  </Link>
+
+                  {/* Individual services */}
+                  {SERVICE_KEYS.map((key) => {
+                    const meta = SERVICE_META[key];
+                    const entry = t.services_list[key];
+                    const Icon = meta.icon;
+                    return (
+                      <Link
+                        key={key}
+                        href={`/services/${entry.slug}`}
+                        onClick={() => setServicesOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
+                          pathname === `/services/${entry.slug}`
+                            ? 'bg-gray-50 text-gray-900 font-semibold'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                        }`}
+                      >
+                        <div
+                          className={`w-7 h-7 ${meta.accentBg} rounded-lg flex items-center justify-center shrink-0`}
+                        >
+                          <Icon className="w-3.5 h-3.5 text-white" />
+                        </div>
+                        {entry.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {[
+              { href: '/pricing', label: t.nav.pricing },
+              { href: '/about', label: t.nav.about },
+              { href: '/contact', label: t.nav.contact },
+            ].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
+                  pathname === link.href
                     ? 'text-blue-600'
                     : isDark
                     ? 'text-white/80 hover:text-white'
@@ -80,7 +177,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher dark={isDark} />
             <a
-              href="/vardan-contact.vcf" download
+              {...phoneProps}
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                 isDark ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}
@@ -116,9 +213,70 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl max-h-[80vh] overflow-y-auto">
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            {navLinks.map((link) => (
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                pathname === '/' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              {t.nav.home}
+            </Link>
+
+            {/* Services expandable */}
+            <div>
+              <button
+                onClick={() => setMobileServicesOpen((o) => !o)}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                  isServicesActive ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                {t.nav.services}
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {mobileServicesOpen && (
+                <div className="mt-1 ml-4 border-l-2 border-gray-100 pl-3 space-y-0.5">
+                  <Link
+                    href="/services"
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-3 py-2 rounded-xl text-sm font-semibold text-blue-600 hover:bg-blue-50"
+                  >
+                    {t.nav.all_services}
+                  </Link>
+                  {SERVICE_KEYS.map((key) => {
+                    const meta = SERVICE_META[key];
+                    const entry = t.services_list[key];
+                    const Icon = meta.icon;
+                    return (
+                      <Link
+                        key={key}
+                        href={`/services/${entry.slug}`}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-gray-600 hover:bg-gray-50"
+                      >
+                        <div
+                          className={`w-6 h-6 ${meta.accentBg} rounded-md flex items-center justify-center shrink-0`}
+                        >
+                          <Icon className="w-3 h-3 text-white" />
+                        </div>
+                        {entry.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {[
+              { href: '/pricing', label: t.nav.pricing },
+              { href: '/about', label: t.nav.about },
+              { href: '/contact', label: t.nav.contact },
+            ].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -132,9 +290,10 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
             <div className="pt-3 flex flex-col gap-2">
               <a
-                href="/vardan-contact.vcf" download
+                {...phoneProps}
                 className="flex items-center justify-center gap-2 bg-gray-50 text-gray-800 px-4 py-3 rounded-xl text-sm font-semibold"
               >
                 <Phone className="w-4 h-4 text-blue-600" />

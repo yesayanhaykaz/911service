@@ -10,6 +10,7 @@ export const ru = {
     contact: 'Контакт',
     book: 'Записаться',
     phone: '+374 55 721 777',
+    all_services: 'Все услуги',
   },
 
   hero: {
@@ -22,6 +23,12 @@ export const ru = {
     trust_repairs: '500+ ремонтов',
     trust_warranty: 'Гарантия до 6 мес.',
     trust_home: 'Забираем и возвращаем',
+    stat_repairs: '500+',
+    stat_repairs_label: 'ремонтов',
+    stat_warranty: '6 мес.',
+    stat_warranty_label: 'гарантия',
+    stat_pickup: '~2ч',
+    stat_pickup_label: 'выезд',
   },
 
   services: {

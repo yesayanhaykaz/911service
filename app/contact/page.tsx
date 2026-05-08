@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
+import { usePhoneProps } from '@/hooks/useIsMobile';
 
 export default function ContactPage() {
   const { t } = useLang();
   const c = t.contact;
+  const phoneProps = usePhoneProps();
 
   const [form, setForm] = useState({ name: '', phone: '', device: '', problem: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -59,7 +61,7 @@ export default function ContactPage() {
 
               <div className="space-y-4 mb-10">
                 <a
-                  href="/vardan-contact.vcf" download
+                  {...phoneProps}
                   className="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-200 group cursor-pointer"
                 >
                   <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-200">

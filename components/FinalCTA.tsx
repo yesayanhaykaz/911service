@@ -3,9 +3,11 @@
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
+import { usePhoneProps } from '@/hooks/useIsMobile';
 
 export default function FinalCTA() {
   const { t } = useLang();
+  const phoneProps = usePhoneProps();
 
   return (
     <section className="py-24 lg:py-32 bg-white">
@@ -42,7 +44,7 @@ export default function FinalCTA() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/vardan-contact.vcf" download
+                {...phoneProps}
                 className="group flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />

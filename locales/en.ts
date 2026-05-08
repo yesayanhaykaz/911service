@@ -10,6 +10,7 @@ export const en = {
     contact: 'Contact',
     book: 'Book Repair',
     phone: '+374 55 721 777',
+    all_services: 'All Services',
   },
 
   hero: {
@@ -22,6 +23,12 @@ export const en = {
     trust_repairs: '500+ repairs done',
     trust_warranty: 'Up to 6 month warranty',
     trust_home: 'Pickup & delivery service',
+    stat_repairs: '500+',
+    stat_repairs_label: 'repairs',
+    stat_warranty: '6 mo.',
+    stat_warranty_label: 'warranty',
+    stat_pickup: '~2h',
+    stat_pickup_label: 'pickup',
   },
 
   services: {

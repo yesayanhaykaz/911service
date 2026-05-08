@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Iron & Steam Station Repair — 911 Service Yerevan',
@@ -11,10 +10,7 @@ export default function IronPage() {
   return (
     <ServicePageTemplate
       serviceKey="iron"
-      heroImage="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=1400&q=85&fit=crop"
-      icon={<Zap className="w-5 h-5 text-white" />}
-      accentColor="text-indigo-600"
-      accentBg="bg-indigo-600"
+      heroImage="https://i.pinimg.com/1200x/0b/1d/b5/0b1db5099caf83356bb4be3b7bbd4a3d.jpg"
     />
   );
 }

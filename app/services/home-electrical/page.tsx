@@ -1,20 +1,16 @@
 import { Metadata } from 'next';
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Lightbulb } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Home Electrical Services — 911 Service Yerevan',
-  description: 'Professional home electrical services in Yerevan. Lighting, sockets, panels, and more.',
+  description: 'Professional home electrical services in Yerevan.',
 };
 
 export default function HomeElectricalPage() {
   return (
     <ServicePageTemplate
       serviceKey="homeElectrical"
-      heroImage="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1400&q=85&fit=crop"
-      icon={<Lightbulb className="w-5 h-5 text-white" />}
-      accentColor="text-yellow-600"
-      accentBg="bg-yellow-500"
+      heroImage="https://i.pinimg.com/736x/ec/5d/6a/ec5d6af5a7a1db1e7bca7d4912a39acd.jpg"
     />
   );
 }

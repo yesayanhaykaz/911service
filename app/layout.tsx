@@ -7,12 +7,19 @@ import StickyCallButton from '@/components/StickyCallButton';
 
 export const metadata: Metadata = {
   title: '911 Service — Coffee Machine & Appliance Repair Yerevan',
-  description: 'Fast, professional coffee machine and household appliance repair at your home in Yerevan. 12-month warranty. Call now.',
-  keywords: 'coffee machine repair, appliance repair, Yerevan, Հայastан, ремонт кофемашин',
+  description:
+    'Fast, professional coffee machine and household appliance repair in Yerevan. We pick up from your home, repair in our workshop, and return with up to 6-month warranty.',
+  keywords:
+    'coffee machine repair, appliance repair, Yerevan, Հայaстан, ремонт кофемашин, robot vacuum repair',
   openGraph: {
-    title: '911 Service — Coffee Machine Repair',
-    description: 'Fast, professional repair at your home',
+    title: '911 Service — Coffee Machine Repair Yerevan',
+    description: 'Pickup, repair, delivery — up to 6-month warranty',
     type: 'website',
+  },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
   },
 };
 
