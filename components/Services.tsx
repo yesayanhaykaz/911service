@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, MessageCircle, Coffee } from 'lucide-react';
+import { ArrowRight, MessageCircle, Coffee, Home } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import {
   DeLonghiLogo, JuraLogo, NespressoLogo, SaecoLogo, PhilipsLogo, SiemensLogo, KrupsLogo, MelittaLogo,
@@ -54,6 +54,36 @@ export default function Services() {
             {t.services.title_end}
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">{t.services.subtitle}</p>
+        </motion.div>
+
+        {/* ─── Pickup highlight banner ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-12"
+        >
+          <div className="relative rounded-2xl overflow-hidden bg-[#0f172a] p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="absolute inset-0 opacity-10">
+              <Image
+                src="https://i.pinimg.com/736x/17/e7/60/17e760ac71b414e1bcb1b298ced1ae9c.jpg"
+                alt=""
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative w-14 h-14 bg-amber-500 rounded-2xl flex items-center justify-center shrink-0">
+              <Home className="w-7 h-7 text-white" />
+            </div>
+            <div className="relative flex-1">
+              <p className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">{t.whyUs.items[3]?.title}</p>
+              <p className="text-white font-bold text-lg leading-snug">{t.whyUs.items[3]?.desc}</p>
+            </div>
+            <div className="relative shrink-0">
+              <span className="px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-sm font-semibold">
+                {t.whyUs.items[3]?.stat} {t.whyUs.items[3]?.statLabel}
+              </span>
+            </div>
+          </div>
         </motion.div>
 
         {/* ─── Household Appliances grid — FIRST ─── */}
