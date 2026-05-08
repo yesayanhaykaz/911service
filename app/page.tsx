@@ -9,8 +9,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <WhyUs />
       <Services />
+      <WhyUs />
+
       <Problems />
       <HowItWorks />
       <FinalCTA />
