@@ -47,7 +47,7 @@ export default function WhyUs() {
           <p className="text-gray-500 text-lg max-w-lg mx-auto">{t.whyUs.subtitle}</p>
         </motion.div>
 
-        {/* Pickup highlight banner */}
+        {/* Pickup highlight banner
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
@@ -76,7 +76,8 @@ export default function WhyUs() {
             </div>
           </div>
         </motion.div>
-
+*/}
+        
         {/* Advantage cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {t.whyUs.items.map((reason, i) => {
