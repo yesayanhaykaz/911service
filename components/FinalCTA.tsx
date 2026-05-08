@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle, ArrowRight } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight, PackageCheck } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { usePhoneProps } from '@/hooks/useIsMobile';
 
@@ -38,23 +38,31 @@ export default function FinalCTA() {
               </span>
             </h2>
 
-            <p className="text-white/60 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+            <p className="text-white/60 text-lg mb-4 max-w-lg mx-auto leading-relaxed">
               {t.finalCta.subtitle}
             </p>
 
+            {/* Pickup reminder */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/15 border border-amber-400/25 mb-10">
+              <PackageCheck className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-300 text-sm font-medium">{t.hero.trust_home}</span>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* Primary: dark with blue glow */}
               <a
                 {...phoneProps}
-                className="group flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
+                className="group flex items-center justify-center gap-2.5 bg-[#0f172a] border border-white/10 hover:border-blue-500/40 text-white px-8 py-4 rounded-xl font-bold text-sm tracking-wide shadow-xl hover:shadow-blue-900/40 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 text-blue-400" />
                 {t.finalCta.cta_call}
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-blue-400" />
               </a>
+              {/* WhatsApp: green border */}
               <a
                 href={`https://wa.me/37455721777?text=${encodeURIComponent(t.services_list.coffeeMachine.waMsg)}`}
                 target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
+                className="flex items-center justify-center gap-2.5 border-2 border-white/15 hover:border-green-400/50 bg-white/[0.05] hover:bg-green-500/10 text-white px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-200"
               >
                 <MessageCircle className="w-5 h-5 text-green-400" />
                 {t.finalCta.cta_wa}

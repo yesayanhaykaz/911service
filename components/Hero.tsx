@@ -2,10 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { MessageCircle, ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { MessageCircle, Star, CheckCircle, Phone, ArrowRight, PackageCheck } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { usePhoneProps } from '@/hooks/useIsMobile';
-import { Phone } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,7 +21,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Hero background image */}
       <Image
         src="https://i.pinimg.com/1200x/5e/cc/3b/5ecc3b17b600153a33acb142c66bbc55.jpg"
         alt="Coffee machine"
@@ -31,16 +29,13 @@ export default function Hero() {
         priority
         quality={80}
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
-      {/* Grid texture */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/72 to-black/40" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      {/* Blue glow */}
       <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-32 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left — Copy */}
+          {/* Left */}
           <div>
             <motion.div
               custom={0} initial="hidden" animate="show" variants={fadeUp}
@@ -63,27 +58,38 @@ export default function Hero() {
 
             <motion.p
               custom={2} initial="hidden" animate="show" variants={fadeUp}
-              className="text-lg text-white/60 leading-relaxed mb-10 max-w-lg"
+              className="text-lg text-white/60 leading-relaxed mb-8 max-w-lg"
             >
               {t.hero.subtitle}
             </motion.p>
 
+            {/* Pickup advantage pill */}
             <motion.div
               custom={3} initial="hidden" animate="show" variants={fadeUp}
+              className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-amber-500/15 border border-amber-400/30 mb-8"
+            >
+              <PackageCheck className="w-4 h-4 text-amber-400 shrink-0" />
+              <span className="text-amber-200 text-sm font-semibold">{t.hero.trust_home}</span>
+            </motion.div>
+
+            <motion.div
+              custom={4} initial="hidden" animate="show" variants={fadeUp}
               className="flex flex-wrap gap-3 mb-12"
             >
+              {/* Primary — dark navy with strong presence */}
               <a
                 {...phoneProps}
-                className="group flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
+                className="group flex items-center gap-2.5 bg-[#0f172a] border border-white/10 hover:border-blue-500/40 text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide shadow-xl hover:shadow-blue-900/40 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 text-blue-400" />
                 {t.hero.cta_call}
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-blue-400" />
               </a>
+              {/* WhatsApp — green border style */}
               <a
                 href={`https://wa.me/37455721777?text=${encodeURIComponent(t.services_list.coffeeMachine.waMsg)}`}
                 target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2.5 bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5 backdrop-blur-sm"
+                className="flex items-center gap-2.5 border-2 border-white/15 hover:border-green-400/50 bg-white/[0.05] hover:bg-green-500/10 text-white px-7 py-4 rounded-xl font-semibold text-sm transition-all duration-200"
               >
                 <MessageCircle className="w-5 h-5 text-green-400" />
                 {t.hero.cta_wa}
@@ -91,7 +97,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              custom={4} initial="hidden" animate="show" variants={fadeUp}
+              custom={5} initial="hidden" animate="show" variants={fadeUp}
               className="flex flex-wrap gap-5"
             >
               {[t.hero.trust_repairs, t.hero.trust_warranty, t.hero.trust_home].map((badge) => (
@@ -111,7 +117,6 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.03] border border-white/10 p-8 backdrop-blur-sm">
-              {/* Stats row */}
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
                   { value: t.hero.stat_repairs, label: t.hero.stat_repairs_label },
@@ -120,12 +125,11 @@ export default function Hero() {
                 ].map((stat) => (
                   <div key={stat.label} className="text-center p-3 rounded-2xl bg-white/5 border border-white/[0.08]">
                     <div className="text-2xl font-black text-white mb-1">{stat.value}</div>
-                    <div className="text-white/40 text-xs">{stat.label}</div>
+                    <div className="text-white/40 text-xs font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              {/* Google rating */}
               <div className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/[0.08]">
                 <div>
                   <div className="flex items-center gap-1 mb-1">
@@ -139,6 +143,12 @@ export default function Hero() {
                   <div className="text-3xl font-black text-white">4.9</div>
                   <div className="text-white/40 text-xs">250+</div>
                 </div>
+              </div>
+
+              {/* Pickup banner inside card */}
+              <div className="mt-4 flex items-center gap-3 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                <PackageCheck className="w-5 h-5 text-amber-400 shrink-0" />
+                <p className="text-amber-200/80 text-xs font-medium leading-tight">{t.hero.trust_home}</p>
               </div>
             </div>
 
@@ -162,8 +172,8 @@ export default function Hero() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
               className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3"
             >
-              <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center">
-                <Phone className="w-4 h-4 text-blue-600" />
+              <div className="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center">
+                <PackageCheck className="w-4 h-4 text-amber-500" />
               </div>
               <div>
                 <p className="text-xs font-semibold text-gray-900">{t.hero.trust_home}</p>
@@ -174,15 +184,14 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent mx-auto"
         />
       </motion.div>
     </section>

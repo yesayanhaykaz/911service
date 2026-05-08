@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
@@ -60,18 +61,23 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            {/* Icon mark — replace src with your PNG when available */}
-            <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 shrink-0">
-              <span className="text-white font-black text-sm leading-none">911</span>
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <div className="relative w-10 h-10 shrink-0 transition-transform group-hover:scale-105">
+              <Image
+                src="/logo.jpg"
+                alt="911 Service"
+                fill
+                className="object-contain rounded-lg"
+                priority
+              />
             </div>
-            <div className="leading-none">
+            <div className="leading-none hidden sm:block">
               <span
                 className={`font-bold text-base tracking-tight block transition-colors ${
                   isDark ? 'text-white' : 'text-gray-900'
                 }`}
               >
-                Service
+                911 Service
               </span>
               <span className="text-blue-500 text-[10px] font-medium">Yerevan</span>
             </div>

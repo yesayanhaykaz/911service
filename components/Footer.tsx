@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, MessageCircle, MapPin, Clock } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { usePhoneProps } from '@/hooks/useIsMobile';
@@ -28,13 +29,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-black text-sm">911</span>
+            <Link href="/" className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10 shrink-0">
+                <Image src="/logo.jpg" alt="911 Service" fill className="object-contain rounded-lg" />
               </div>
               <div>
-                <span className="text-white font-bold text-base">Service</span>
-                <span className="block text-blue-500 text-[10px] font-medium leading-none -mt-0.5">Yerevan</span>
+                <span className="text-white font-bold text-base">911 Service</span>
+                <span className="block text-blue-400 text-[10px] font-medium leading-none -mt-0.5">Yerevan</span>
               </div>
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-6">{t.footer.desc}</p>

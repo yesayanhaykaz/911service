@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Search, Wrench, CheckCircle } from 'lucide-react';
+import { Phone, Search, Wrench, CheckCircle, ArrowRight } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { usePhoneProps } from '@/hooks/useIsMobile';
 
@@ -66,10 +66,11 @@ export default function HowItWorks() {
         >
           <a
             {...phoneProps}
-            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2.5 bg-[#0f172a] border border-white/10 hover:border-blue-500/40 text-white px-8 py-4 rounded-xl font-bold text-sm tracking-wide shadow-xl hover:shadow-blue-900/40 hover:-translate-y-0.5 transition-all duration-200"
           >
-            <Phone className="w-5 h-5" />
+            <Phone className="w-4 h-4 text-blue-400" />
             {t.howItWorks.cta}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-blue-400" />
           </a>
         </motion.div>
       </div>
