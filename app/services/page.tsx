@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, MessageCircle, PowerOff, Thermometer, Volume2, Droplets, Zap, HelpCircle, PackageCheck, Wrench, PackageOpen, Phone } from 'lucide-react';
+import { ArrowRight, MessageCircle, PowerOff, Thermometer, Volume2, Droplets, Zap, HelpCircle, PackageCheck, Wrench, PackageOpen, Phone, Home } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { SERVICE_KEYS, SERVICE_META } from '@/components/ServiceMeta';
 import { usePhoneProps } from '@/hooks/useIsMobile';
@@ -65,10 +65,43 @@ export default function ServicesPage() {
               <span className="text-blue-400">{t.services.title_accent}</span>{' '}
               {t.services.title_end}
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed mb-6">{t.services.subtitle}</p>
-            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-amber-500/15 border border-amber-400/30">
-              <PackageCheck className="w-4 h-4 text-amber-400 shrink-0" />
-              <span className="text-amber-200 text-sm font-semibold">{t.hero.trust_home}</span>
+            <p className="text-white/60 text-lg leading-relaxed">{t.services.subtitle}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Pickup highlight banner — same style as WhyUs ── */}
+      <section className="bg-white px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6 }}
+          >
+            <div className="relative rounded-2xl overflow-hidden bg-[#0f172a] p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="absolute inset-0 opacity-10">
+                <Image
+                  src="https://i.pinimg.com/736x/17/e7/60/17e760ac71b414e1bcb1b298ced1ae9c.jpg"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative w-14 h-14 bg-amber-500 rounded-2xl flex items-center justify-center shrink-0">
+                <Home className="w-7 h-7 text-white" />
+              </div>
+              <div className="relative flex-1">
+                <p className="text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
+                  {t.whyUs.items[3]?.title}
+                </p>
+                <p className="text-white font-bold text-lg leading-snug">
+                  {t.whyUs.items[3]?.desc}
+                </p>
+              </div>
+              <div className="relative shrink-0">
+                <span className="px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-sm font-semibold">
+                  {t.whyUs.items[3]?.stat} {t.whyUs.items[3]?.statLabel}
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>

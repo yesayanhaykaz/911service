@@ -89,7 +89,7 @@ export default function Header() {
               <div className="relative w-9 h-9 shrink-0 transition-transform group-hover:scale-105">
                 <Image src="/logo.jpg" alt="911 Service" fill className="object-contain rounded-lg" priority />
               </div>
-              <div className="leading-none hidden sm:block">
+              <div className="leading-none">
                 <span
                   className={`font-bold text-base tracking-tight block transition-colors ${
                     isDark ? 'text-white' : 'text-gray-900'
@@ -251,7 +251,7 @@ export default function Header() {
                 <Image src="/logo.jpg" alt="911 Service" fill className="object-contain rounded-lg" />
               </div>
               <div className="leading-none">
-                <span className="font-bold text-sm text-gray-900 block">911 Service</span>
+                <span className="font-bold text-sm text-gray-900 block leading-tight">911 Service</span>
                 <span className="text-blue-500 text-[10px] font-medium">Yerevan</span>
               </div>
             </Link>
