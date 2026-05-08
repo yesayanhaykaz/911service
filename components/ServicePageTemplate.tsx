@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { MessageCircle, CheckCircle, ArrowRight, Star } from 'lucide-react';
+import { MessageCircle, CheckCircle, ArrowRight, Star, PowerOff, Thermometer, Volume2, Droplets, Zap, HelpCircle } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import type { ServiceKey as LocaleServiceKey } from '@/locales';
 import { BrandLogo } from '@/components/BrandLogos';
@@ -16,6 +16,16 @@ interface ServicePageProps {
 }
 
 const wa = (msg: string) => `https://wa.me/37455721777?text=${encodeURIComponent(msg)}`;
+
+const problemIcons = [PowerOff, Thermometer, Volume2, Droplets, Zap, HelpCircle];
+const problemColors = [
+  { icon: 'text-red-500',    bg: 'bg-red-50',    border: 'border-red-100' },
+  { icon: 'text-orange-500', bg: 'bg-orange-50', border: 'border-orange-100' },
+  { icon: 'text-purple-500', bg: 'bg-purple-50', border: 'border-purple-100' },
+  { icon: 'text-blue-500',   bg: 'bg-blue-50',   border: 'border-blue-100' },
+  { icon: 'text-yellow-500', bg: 'bg-yellow-50', border: 'border-yellow-100' },
+  { icon: 'text-gray-400',   bg: 'bg-gray-100',  border: 'border-gray-200' },
+];
 
 export default function ServicePageTemplate({ serviceKey, heroImage }: ServicePageProps) {
   const { t } = useLang();
@@ -104,22 +114,26 @@ export default function ServicePageTemplate({ serviceKey, heroImage }: ServicePa
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {svc.problems.map((p, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                className="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-md transition-all"
-              >
-                <div className={`w-10 h-10 ${accentBg} rounded-xl flex items-center justify-center mb-4`}>
-                  <CheckCircle className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">{p.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
-              </motion.div>
-            ))}
+            {svc.problems.map((p, i) => {
+              const PIcon = problemIcons[i % problemIcons.length];
+              const c = problemColors[i % problemColors.length];
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className={`bg-white rounded-2xl p-6 border ${c.border} hover:shadow-lg transition-all duration-300 group`}
+                >
+                  <div className={`w-12 h-12 ${c.bg} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}>
+                    <PIcon className={`w-6 h-6 ${c.icon}`} />
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2">{p.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

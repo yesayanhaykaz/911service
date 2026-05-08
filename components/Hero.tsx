@@ -25,13 +25,23 @@ export default function Hero() {
         src="https://i.pinimg.com/1200x/5e/cc/3b/5ecc3b17b600153a33acb142c66bbc55.jpg"
         alt="Coffee machine"
         fill
-        className="object-cover"
+        className="object-cover object-center brightness-[0.55]"
         priority
         quality={80}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/72 to-black/40" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Layer 1: base darkness */}
+      <div className="absolute inset-0 bg-black/50" />
+      {/* Layer 2: directional — text side very dark, image side breathes */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/20" />
+      {/* Layer 3: top + bottom vignette for cinematic depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/75" />
+      {/* Layer 4: cool blue-indigo atmospheric tint */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/50 via-transparent to-transparent" />
+      {/* Layer 5: subtle grid texture */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      {/* Glows */}
+      <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-blue-600/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/5 w-56 h-56 bg-blue-800/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-32 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -39,10 +49,10 @@ export default function Hero() {
           <div>
             <motion.div
               custom={0} initial="hidden" animate="show" variants={fadeUp}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/15 mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-white/70 text-sm font-medium">{t.hero.badge}</span>
+              <span className="text-white/80 text-sm font-medium">{t.hero.badge}</span>
             </motion.div>
 
             <motion.h1
@@ -58,7 +68,7 @@ export default function Hero() {
 
             <motion.p
               custom={2} initial="hidden" animate="show" variants={fadeUp}
-              className="text-lg text-white/60 leading-relaxed mb-8 max-w-lg"
+              className="text-lg text-white/70 leading-relaxed mb-8 max-w-lg"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -116,7 +126,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative hidden lg:block"
           >
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.03] border border-white/10 p-8 backdrop-blur-sm">
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/[0.12] to-white/[0.04] border border-white/15 p-8 backdrop-blur-md shadow-2xl shadow-black/60">
               <div className="grid grid-cols-3 gap-4 mb-6">
                 {[
                   { value: t.hero.stat_repairs, label: t.hero.stat_repairs_label },
