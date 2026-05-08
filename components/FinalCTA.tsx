@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Phone, MessageCircle, ArrowRight, PackageCheck } from 'lucide-react';
 import { useLang } from '@/contexts/LanguageContext';
 import { usePhoneProps } from '@/hooks/useIsMobile';
@@ -10,7 +11,16 @@ export default function FinalCTA() {
   const phoneProps = usePhoneProps();
 
   return (
-    <section className="py-24 lg:py-32 bg-white">
+    <section className="py-24 lg:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="https://i.pinimg.com/1200x/5e/cc/3b/5ecc3b17b600153a33acb142c66bbc55.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-[0.04]"
+        />
+        <div className="absolute inset-0 bg-white/95" />
+      </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}

@@ -36,7 +36,7 @@ export default function ServicesPage() {
   const FeaturedIcon = featured.icon;
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 overflow-x-hidden">
       {/* ── Hero with background image ── */}
       <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
         <Image
@@ -65,30 +65,30 @@ export default function ServicesPage() {
               <span className="text-blue-400">{t.services.title_accent}</span>{' '}
               {t.services.title_end}
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed">{t.services.subtitle}</p>
+            <p className="text-white/60 text-lg leading-relaxed mb-6">{t.services.subtitle}</p>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-amber-500/15 border border-amber-400/30">
+              <PackageCheck className="w-4 h-4 text-amber-400 shrink-0" />
+              <span className="text-amber-200 text-sm font-semibold">{t.hero.trust_home}</span>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* ── HOW WE WORK: Pickup → Repair → Return banner ── */}
       <section className="bg-[#0f172a] border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-0 justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {t.howItWorks.steps.map((step, i) => {
               const StepIcon = pickupSteps[i].icon;
-              const isLast = i === t.howItWorks.steps.length - 1;
               return (
-                <div key={i} className="flex items-center gap-3 sm:flex-1">
-                  <div className={`w-10 h-10 ${pickupSteps[i].color} rounded-xl flex items-center justify-center shrink-0`}>
-                    <StepIcon className="w-5 h-5 text-white" />
+                <div key={i} className="flex items-center gap-2.5">
+                  <div className={`w-9 h-9 ${pickupSteps[i].color} rounded-xl flex items-center justify-center shrink-0`}>
+                    <StepIcon className="w-4 h-4 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-white font-semibold text-sm">{step.title}</p>
-                    <p className="text-white/40 text-xs truncate">{step.desc.split(',')[0]}</p>
+                    <p className="text-white font-semibold text-xs leading-tight">{step.title}</p>
+                    <p className="text-white/40 text-[10px] truncate">{step.desc.split(',')[0]}</p>
                   </div>
-                  {!isLast && (
-                    <ArrowRight className="w-5 h-5 text-white/20 hidden sm:block shrink-0 mx-2" />
-                  )}
                 </div>
               );
             })}
